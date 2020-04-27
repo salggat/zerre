@@ -1,0 +1,87 @@
+<html>
+<!-- Sencha Example Template (do not change this line)  -->
+<!-- Version 1.0.8 -->
+<head>
+	<meta charset="UTF-8" />
+	<meta name="" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Where is my bus</title>
+	<link rel="icon" href="/favicon.png" type="image/png">
+	<script>
+		var arrStop = [""];
+			arrStop.push("세종문화회관");
+			arrStop.push("시청앞.덕수궁");
+			arrStop.push("시청앞");
+			arrStop.push("서울역버스환승센터");
+			arrStop.push("숭례문남산방향");
+			arrStop.push("힐튼호텔");
+			arrStop.push("남산도서관");
+			arrStop.push("후암약수터");
+		
+		// 확인 버튼 클릭
+		var goOnClick = function() {
+			
+			var searchText = document.getElementById('searchText').value.trim();
+			
+			if( !searchText ) {
+				document.getElementById('result').innerHTML = "검색어를 입력하세요.";
+				return;
+			}
+			
+			var busStopName = "";
+			for( var i=0; i<arrStop.length; i++ ) {
+				if( arrStop[i].indexOf(searchText) > -1 ) {
+					busStopName = arrStop[i];
+					break;
+				}
+			}
+			console.log(busStopName);
+			if( busStopName ) {
+				document.getElementById('result').innerHTML = busStopName + " 정류장은 있습니다.";
+			}
+			else {
+				document.getElementById('result').innerHTML = busStopName + " 정류장은 없습니다.";
+			}
+		}
+		
+		var searchTextOnKeyDown = function() {
+			if( event.keyCode == 13 ) {
+				goOnClick();
+			}
+		}
+		
+		// window onload
+		window.onload = function() {
+			document.getElementById('searchText').onkeydown  = searchTextOnKeyDown;
+			document.getElementById('go').onclick = goOnClick;
+		}
+	</script>
+</head>
+	<!-- CSS Style --> 
+	<style>
+		.header-container-short {
+			background-color: #024059;
+			padding-top: 6px;
+			padding-bottom: 6px;
+			width: 100%;
+		}
+
+	</style>
+<body>
+
+	<!-- Header Container -->
+	<div>
+		<div class="login_box">
+			
+			<div>
+				<label for="iptId">버스정류장명</label>
+				<input type="text" id="searchText" name="searchText" title="aa정류장명 입력" placeholder="정류장명 입력" maxlength="40" autocomplete="off" />
+			
+				<button id="go">확인</button><br>
+				<span id="result"></span>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
