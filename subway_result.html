@@ -1,0 +1,181 @@
+<html>
+<!-- Sencha Example Template (do not change this line)  -->
+<!-- Version 1.0.8 -->
+<head>
+	<meta charset="UTF-8" />
+	<meta name="" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Where is my bus</title>
+	<script>
+		var arrSubWay = [
+			 {busNo:261,direction:"R", subWayNm:"광운대역",            passLine:"1,경춘",                  busStationNm:"월계삼거리,광운대역",   timeNm:"2분,3분",time:2}
+			,{busNo:261,direction:"R", subWayNm:"석계역",              passLine:"1,6",                    busStationNm:"석계역",              timeNm:"6분",time:6}
+			
+			,{busNo:261,direction:"L", subWayNm:"돌곶이역",             passLine:"6",                        busStationNm:"돌곶이역",   timeNm:"10분",time:10}
+			,{busNo:261,direction:"L", subWayNm:"신이문역",             passLine:"1",                        busStationNm:"의릉입구",   timeNm:"14분 및 626m 도보",time:41}
+			,{busNo:261,direction:"L", subWayNm:"외대앞역",             passLine:"1",                        busStationNm:"외대앞",     timeNm:"18분",time:18}
+			,{busNo:261,direction:"L", subWayNm:"회기역",               passLine:"1,경의중앙, 경춘",          busStationNm:"회기시장",    timeNm:"20분",time:20}
+			,{busNo:261,direction:"L", subWayNm:"청량리역",             passLine:"1, 경춘, 경의중앙, 분당선",  busStationNm:"청량리역환승센터",   timeNm:"26분",time:26}
+			,{busNo:261,direction:"L", subWayNm:"제기동역",             passLine:"1",                        busStationNm:"제기동역",       timeNm:"30분",time:30}
+			,{busNo:261,direction:"L", subWayNm:"신설동역",             passLine:"1,2",                      busStationNm:"우이신설/신설동역",   timeNm:"33분",time:33 }
+			,{busNo:261,direction:"L", subWayNm:"동묘앞역",             passLine:"1,6",                      busStationNm:"동묘앞",           timeNm:"35분",time:35 }
+			,{busNo:261,direction:"L", subWayNm:"동대문역",             passLine:"1,6",                      busStationNm:"동대문",           timeNm:"37분",time:37 }
+			,{busNo:261,direction:"L", subWayNm:"동대문역사문화공원역",   passLine:"2,4,5",                   busStationNm:"동대문역사문화공원",   timeNm:"44분",time:44 }
+			,{busNo:261,direction:"L", subWayNm:"을지로4가역",          passLine:"2,5",                     busStationNm:"을지로5가",             timeNm:"47분",time:47 }
+			,{busNo:261,direction:"L", subWayNm:"을지로3가역",          passLine:"2,3",                     busStationNm:"을지로3가",             timeNm:"51분",time:51 }
+			,{busNo:261,direction:"L", subWayNm:"을지로입구역",         passLine:"2",                        busStationNm:"롯데백화점",         timeNm:"56분",time:56 }
+			,{busNo:261,direction:"L", subWayNm:"회현역",              passLine:"4",                      busStationNm:"복창동.남대문시장",   timeNm:"59분",time:59 }
+			,{busNo:261,direction:"L", subWayNm:"서울역",              passLine:"1,4,경의중앙,공항",        busStationNm:"염천교",            timeNm:"1시간 1분",time:61 }
+			,{busNo:261,direction:"L", subWayNm:"공덕역",              passLine:"5,6,경의중앙,공항",        busStationNm:"공덕역.공덕시장",   timeNm:"1시간 11분",time:71 }
+			,{busNo:261,direction:"L", subWayNm:"마포역",              passLine:"5,6,분당",                busStationNm:"마포역",           timeNm:"1시간 14분",time:74 }
+			,{busNo:261,direction:"L", subWayNm:"여의나루역",          passLine:"5",                       busStationNm:"여의나루역",       timeNm:"1시간 22분",time:82 }
+			,{busNo:261,direction:"L", subWayNm:"샛강역",              passLine:"9",                       busStationNm:"샛강역 1번출구",   timeNm:"1시간 34분",time:94 }
+			,{busNo:261,direction:"L", subWayNm:"여의도역",            passLine:"5,9",                      busStationNm:"여의도역 하차",   timeNm:"1시간 35분",time:95 }
+			
+			
+			,{busNo:1017,direction:"R", subWayNm:"광운대역",            passLine:"1,경춘",                  busStationNm:"월계삼거리",   timeNm:"2분",time:2 }
+			
+			,{busNo:1017,direction:"L", subWayNm:"월곡역",              passLine:"6",                      busStationNm:"생명의전화",   timeNm:"20분",time:20 }
+			,{busNo:1017,direction:"L", subWayNm:"고려대역",            passLine:"6",                      busStationNm:"고대앞",       timeNm:"27분",time:27 }
+			,{busNo:1017,direction:"L", subWayNm:"안암역",              passLine:"6",                      busStationNm:"우신향병원",   timeNm:"29분",time:29 }
+			,{busNo:1017,direction:"L", subWayNm:"제기동역",            passLine:"1",                      busStationNm:"용두시장앞",   timeNm:"31분",time:31 }
+			,{busNo:1017,direction:"L", subWayNm:"상왕십리역",           passLine:"2",                      busStationNm:"상왕십리역",   timeNm:"39분",time:39 }
+				
+			,{busNo:1137,direction:"R", subWayNm:"광운대역",            passLine:"1",                      busStationNm:"경춘/월계삼거리",           timeNm:"2분",time:2 }
+				
+			,{busNo:1137,direction:"R", subWayNm:"월계역",              passLine:"1",                      busStationNm:"인덕대앞,월계헬스케어센터",   timeNm:"3분,5분",time:3 }
+			,{busNo:1137,direction:"R", subWayNm:"하계역",              passLine:"7",                      busStationNm:"하계역",                  timeNm:"8분",time:8 }
+			,{busNo:1137,direction:"R", subWayNm:"중계역",              passLine:"7",                      busStationNm:"중계역",                  timeNm:"12분",time:12 }
+			,{busNo:1137,direction:"R", subWayNm:"노원역",              passLine:"4,7",                    busStationNm:"상계주공6단지하차",        timeNm:"17분",time:17 }
+			,{busNo:1137,direction:"R", subWayNm:"마들역",              passLine:"7",                      busStationNm:"상계주공9단지",           timeNm:"23분",time:23 }
+			,{busNo:1137,direction:"R", subWayNm:"상계역",              passLine:"4",                      busStationNm:"상계역",                 timeNm:"30분",time:30 }
+				
+			,{busNo:1137,direction:"L", subWayNm:"미아사거리역",         passLine:"4",                      busStationNm:"미아사거리역",             timeNm:"16분",time:16 }
+		];
+
+		// 확인 버튼 클릭
+		var makeResult = function(searchText) {
+
+			var resultInfo = {};
+			
+			for( var i=0; i<arrSubWay.length; i++ ) {
+				if( arrSubWay[i].subWayNm.indexOf(searchText) > -1 ) {
+					resultInfo = arrSubWay[i];
+					break;
+				}
+			}
+			console.log(resultInfo);
+
+			if( Object.keys(resultInfo).length > 0 ) {
+				var t  = '<span style="font-size:34px;">';
+					t += resultInfo.subWayNm;
+					t += '</span>';
+					t += "<p>타는 곳 : "+ (resultInfo.direction=="R" ? "중앙도서관 앞 버스 정류" : "동해문화예술관 앞 버스 정류장류장");
+					t += "<p>소요시간 : " + resultInfo.timeNm;
+					t += "<p>내릴 버스 정류장 : " + resultInfo.busStationNm;
+					t += "<p>경유 지하철 노선 : " + resultInfo.passLine;
+				
+				document.getElementById('result').innerHTML = t;
+			}
+			else {
+				document.getElementById('result').innerHTML = "지하철역 정보를 찾지 못하였습니다.";
+			}
+			
+				//var map = {};
+				//connections.forEach((connection) => {
+				//  var mapKey = connection.source + "/" + connection.target;
+				//  answerConnection = map[mapKey];
+				//
+				//  if (!answerConnection || answerConnection.metrics.normal < connection.metrics.normal)
+				//     map[mapKey] = connection;
+				//});
+
+		}
+
+		// window onload
+		window.onload = function() {
+			var url_string = location.href;
+			
+			var url = new URL(url_string);
+			var searchText = url.searchParams.get("searchText").trim();
+			
+			document.getElementById('search-text').innerHTML = "검색어 : " + searchText;
+			
+			makeResult(searchText);
+		}
+	</script>
+</head>
+	<!-- CSS Style -->
+	<style>
+		body { margin: 0 auto; }
+		#container
+		{
+			position: absolute;
+			width: 500px;
+			left: 50%;
+			top: 50%;
+			margin-left: -250px;
+			margin-top: -140px;
+			border: 1px solid #d1d5da;
+			background-color: #f6f8fa;
+			padding:0px 20px 20px 20px;
+			border-radius: 5px;
+		}
+
+		.textBox {
+			min-height: 34px;
+			padding: 6px 8px;
+			font-size: 16px;
+			line-height: 20px;
+			color: #24292e;
+			vertical-align: middle;
+			border: 1px solid #d1d5da;
+			border-radius: 3px;
+			outline: none;
+			box-shadow: inset 0 1px 2px rgba(27,31,35,.075)
+		}
+		.btn {
+			color: #396599;
+			background-color: #eff3f6;
+			background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+			padding: 6px 12px;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 20px;
+			vertical-align: middle;
+			cursor: pointer;
+			user-select: none;
+			border: 1px solid rgba(27,31,35,.2);
+			border-radius: .25em;
+		}
+		#search-text {
+			padding-left:20px;
+		}
+		.resultBox {
+			margin: 20px;
+			padding: 6px;
+			/*border: 3px solid rgba(134,191,154,.3);*/
+			border-radius: 5px;
+		}
+	</style>
+<body>
+	<div style="text-align:center;">
+		<img src="subway_logo.png" >
+	</div>
+	<!-- Header Container -->
+	<div id="container">
+		<div class="login_box">
+			<div>
+				<div style="border-bottom:1px solid #808080; padding: 8px 0px;">
+					<a href="javascript:history.back();" style="font-size:14px; font-weight: 600;">← 뒤로가기</a>
+					<span id="search-text"></span>
+				</div>
+				<div class="resultBox">
+					<span id="result"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
