@@ -56,6 +56,12 @@
 		// 확인 버튼 클릭
 		var makeResult = function(searchText) {
 
+			// 배열을 도착시간별로 재정렬
+			arrSubWay.sort(function(a, b) {
+				return parseInt(a.time) - parseInt(b.time);
+			});
+			// console.log(arrSubWay);
+
 			var resultInfo = {};
 			
 			for( var i=0; i<arrSubWay.length; i++ ) {
@@ -70,7 +76,8 @@
 				var t  = '<span style="font-size:34px;">';
 					t += resultInfo.subWayNm;
 					t += '</span>';
-					t += "<p>타는 곳 : "+ (resultInfo.direction=="R" ? "중앙도서관 앞 버스 정류" : "동해문화예술관 앞 버스 정류장류장");
+					t += "<p>버스 번호 : " + resultInfo.busNo;
+					t += "<p>타는 곳 : " + (resultInfo.direction=="R" ? "중앙도서관 앞 버스 정류" : "동해문화예술관 앞 버스 정류장류장");
 					t += "<p>소요시간 : " + resultInfo.timeNm;
 					t += "<p>내릴 버스 정류장 : " + resultInfo.busStationNm;
 					t += "<p>경유 지하철 노선 : " + resultInfo.passLine;
